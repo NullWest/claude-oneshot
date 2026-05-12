@@ -1,0 +1,16 @@
+{
+    "name": "nullwest",
+    "owner": {
+        "name": "NullWest",
+        "email": "scott@nullwest.com"
+    },
+    "description": "Claude Code plugins by NullWest",
+    "plugins": [
+        {
+            "name": "claude-oneshot",
+            "source": "./plugins/claude-oneshot",
+            "description": "Measure your Claude Code one-shot edit rate per model",
+            "version": "1.0.0"
+        }
+    ]
+}

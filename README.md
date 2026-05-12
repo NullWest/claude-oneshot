@@ -6,26 +6,10 @@ A "one-shot" edit is when Claude's code changes land without needing to self-cor
 
 ## Install
 
-```bash
+```
+/plugin marketplace add NullWest/claude-oneshot
 /plugin install claude-oneshot@nullwest
 ```
-
-Or add the marketplace to your settings manually:
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "nullwest": {
-      "source": {
-        "source": "github",
-        "repo": "NullWest/claude-oneshot"
-      }
-    }
-  }
-}
-```
-
-Then: `/plugin install claude-oneshot@nullwest`
 
 ## Usage
 
@@ -62,7 +46,7 @@ Four sections:
 
 ## Standalone script
 
-You can also run `oneshot.py` directly:
+You can also run `oneshot.py` directly without the plugin:
 
 ```bash
 python oneshot.py              # plain text
