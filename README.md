@@ -1,8 +1,38 @@
 # claude-oneshot
 
-Measure your Claude Code **one-shot edit rate** per model.
+A Claude Code plugin that measures your **one-shot edit rate** per model.
 
 A "one-shot" edit is when Claude's code changes land without needing to self-correct — no edit→bash→edit retry cycle within the same turn.
+
+## Install
+
+```bash
+/plugin install claude-oneshot@nullwest
+```
+
+Or add the marketplace to your settings manually:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "nullwest": {
+      "source": {
+        "source": "github",
+        "repo": "NullWest/claude-oneshot"
+      }
+    }
+  }
+}
+```
+
+Then: `/plugin install claude-oneshot@nullwest`
+
+## Usage
+
+```
+/claude-oneshot:oneshot        # all sessions
+/claude-oneshot:oneshot 30     # last 30 days
+```
 
 ## What it measures
 
@@ -13,20 +43,6 @@ A "one-shot" edit is when Claude's code changes land without needing to self-cor
 | **Retry** | An edit→bash→edit cycle (Claude edited, tested, then fixed its own work) |
 | **One-shot** | An edit turn with zero retries |
 
-## Usage
-
-```bash
-# all sessions
-python oneshot.py
-
-# last 30 days
-python oneshot.py 30
-
-# markdown output (for Claude Code skill integration)
-python oneshot.py --markdown
-python oneshot.py 30 --markdown
-```
-
 ## Output
 
 Four sections:
@@ -36,24 +52,27 @@ Four sections:
 3. **Weekly trend** — how your rate changes over time
 4. **Summary** — auto-detected insights (best/worst combos, biggest swings, model gaps)
 
-### Example
+## Example output
 
+| Model | Edit Turns | One-Shot | Rate |
+|---|---:|---:|---:|
+| claude-opus-4-7 | 328 | 247 | **75.3%** |
+| claude-opus-4-6 | 197 | 189 | **95.9%** |
+| **TOTAL** | **525** | **436** | **83.0%** |
+
+## Standalone script
+
+You can also run `oneshot.py` directly:
+
+```bash
+python oneshot.py              # plain text
+python oneshot.py --markdown   # markdown tables
+python oneshot.py 30           # last 30 days
 ```
-Model                               Edit Turns   One-Shot     Rate
--------------------------------------------------------------------
-claude-opus-4-7                            328        247    75.3%
-claude-opus-4-6                            197        189    95.9%
--------------------------------------------------------------------
-TOTAL                                      525        436    83.0%
-```
-
-## As a Claude Code skill
-
-Copy the `SKILL.md` file to `~/.claude/skills/omc-learned/oneshot-rate/SKILL.md` to use it as an [oh-my-claudecode](https://github.com/anthropics/oh-my-claudecode) skill. Then just say "show me my one-shot rate" in any session.
 
 ## How it works
 
-Claude Code stores session transcripts as JSONL files in `~/.claude/projects/`. Each line is a message with tool calls. The script:
+Claude Code stores session transcripts as JSONL files in `~/.claude/projects/`. The plugin instructs Claude to write and run a Python script that:
 
 1. Parses all session JSONL files
 2. Groups messages into turns (filtering out `tool_result` messages that masquerade as user messages)

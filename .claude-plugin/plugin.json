@@ -1,0 +1,8 @@
+{
+    "name": "claude-oneshot",
+    "description": "Measure your Claude Code one-shot edit rate per model",
+    "author": {
+        "name": "NullWest",
+        "email": "scott@nullwest.com"
+    }
+}
