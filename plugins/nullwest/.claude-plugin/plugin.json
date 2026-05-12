@@ -1,5 +1,5 @@
 {
-    "name": "claude-oneshot",
+    "name": "one-shot",
     "description": "Measure your Claude Code one-shot edit rate per model",
     "author": {
         "name": "NullWest",

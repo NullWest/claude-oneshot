@@ -7,8 +7,8 @@
     "description": "Claude Code plugins by NullWest",
     "plugins": [
         {
-            "name": "claude-oneshot",
-            "source": "./plugins/claude-oneshot",
+            "name": "one-shot",
+            "source": "./plugins/nullwest",
             "description": "Measure your Claude Code one-shot edit rate per model",
             "version": "1.0.0"
         }

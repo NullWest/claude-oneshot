@@ -8,14 +8,14 @@ A "one-shot" edit is when Claude's code changes land without needing to self-cor
 
 ```
 /plugin marketplace add NullWest/claude-oneshot
-/plugin install claude-oneshot@nullwest
+/plugin install one-shot@nullwest
 ```
 
 ## Usage
 
 ```
-/claude-oneshot:oneshot        # all sessions
-/claude-oneshot:oneshot 30     # last 30 days
+/one-shot:one-shot        # all sessions
+/one-shot:one-shot 30     # last 30 days
 ```
 
 ## What it measures
