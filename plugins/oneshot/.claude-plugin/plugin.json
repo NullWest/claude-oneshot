@@ -1,8 +1,16 @@
 {
     "name": "oneshot",
+    "version": "1.0.0",
     "description": "Measure your Claude Code one-shot edit rate per model",
     "author": {
         "name": "NullWest",
-        "email": "scott@nullwest.com"
-    }
+        "url": "https://github.com/NullWest"
+    },
+    "repository": "https://github.com/NullWest/claude-oneshot",
+    "keywords": [
+        "oneshot",
+        "analytics",
+        "metrics",
+        "model-comparison"
+    ]
 }
