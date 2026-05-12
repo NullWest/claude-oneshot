@@ -14,8 +14,8 @@ A "one-shot" edit is when Claude's code changes land without needing to self-cor
 ## Usage
 
 ```
-/one-shot:one-shot        # all sessions
-/one-shot:one-shot 30     # last 30 days
+/one-shot:report        # all sessions
+/one-shot:report 30     # last 30 days
 ```
 
 ## What it measures
