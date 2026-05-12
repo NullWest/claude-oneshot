@@ -8,7 +8,7 @@
     "plugins": [
         {
             "name": "oneshot",
-            "source": "./plugins/nullwest",
+            "source": "./plugins/oneshot",
             "description": "Measure your Claude Code one-shot edit rate per model",
             "version": "1.0.0"
         }
